@@ -1,0 +1,65 @@
+routes:
+
+  /pdf/:
+    controller: channel
+    filter: tag:[PDF]   
+    template:
+      - index-pdf
+  /sections/activism/:
+    controller: channel
+    filter: tag:[Activism,Social Change]
+  /sections/art/:
+    controller: channel
+    filter: tag:[Art,Comics,Illustration,Photography,Poetry,Fiction]  
+  /sections/business/:
+    controller: channel
+    filter: tag:[Entrepreneurship,Small Business,Business Profiles]  
+  /sections/entertainment/:
+    controller: channel
+    filter: tag:[Entertainment,Music,Movies,Podcasts,Books,Videos,Games,Puzzles,Sports,Horoscopes,Humor,Tarot]
+  /sections/events/:
+    controller: channel
+    filter: tag:[Events]
+  /sections/life/:
+    controller: channel
+    filter: tag:[Fitness,Food,Recipes,Health,Mental Health,Internet,Outdoors,Travel,Sex,Relationships,Hobbies,Activities,Restaurant Reviews]
+  /sections/local/:
+    controller: channel
+    filter: tag:[Local Issues,Local Politics,Local,Local History,Local Column,Local Opinion]
+  /sections/national/:
+    controller: channel
+    filter: tag:[National Issues,National Politics,National,National Opinion]
+  /sections/people/:
+    controller: channel
+    filter: tag:[Interview,Profiles]
+  /sections/projects/:
+    controller: channel
+    filter: tag:[Projects,Art Projects,Community Efforts]
+  /sections/tumbleweird/:
+    controller: channel
+    filter: tag:[Tumbleweird]
+
+collections:
+
+  /:
+    permalink: /{slug}/
+
+    # filter: tag:-[PDF,PDFs]
+    # add this once real content is on the site
+
+    # filter: tag:[Feature]
+    # might add this ^ at some point and only put featured content on home page
+    template:
+      - index
+
+taxonomies:
+  tag: /topic/{slug}/
+  author: /author/{slug}/
+
+# filter examples
+# filter: tag:x+tag:y # must have both "x" and "y" tags (+ = AND)
+# filter: tag:x,tag:y # can have either "x" or "y" tags (, = OR)
+# filter: tag:-x+tag:y # must have tag "y" but not tag "x" (- = NOT)
+# filter: tag:[x,y,z] # must have either "x", "y", or "z" tags ([] = IN)
+# filter: tag:-[x,y,z] # must not have any one of "x", "y", or "z" tags (-[] = NOT IN)
+# filter: author:steve+tag:x # must be written by "steve" and have tag "x"
